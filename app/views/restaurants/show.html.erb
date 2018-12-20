@@ -1,20 +1,20 @@
 <h3><%= @restaurant.name %></h3>
-<%= image_tag @restaurant.picture, size: 100 %>
+<%= image_tag @restaurant.picture, size: 300, class: "img-thumbnail" %>
 <p>Description: <%= @restaurant.description %></p>
 <h2><%= @restaurant.name %> Dishes</h2>
 
-<table class="table">
-  <tr>
-    <% @restaurant.dishes.each do |dish| %>
-    <tr>
-      <td>
-      	<%= image_tag dish.picture, size: 100 %><br>
-        <%= link_to dish.name, dish_path(dish) %><br>
-        <%= dish.price %>
-        <%= dish.description %>
-      </td>
-    </tr>
-    <% end %>
-  </tr>
-</table>
-<%= link_to 'Home', restaurants_url %>
+<% @restaurant.dishes.each do |dish| %>
+<div class="card" style="width: 18rem;">
+  <%= image_tag dish.picture, size: 300, class: "img-thumbnail" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to dish.name, dish_path(dish) %></h5>
+    <p class="card-text">
+      <%= dish.description %>
+      <br>
+      Price: <%= dish.price %>
+    </p>
+  </div>
+</div>
+<% end %>
+
+<%= link_to 'Home', restaurants_path, class: "text-dark btn btn-warning" %>

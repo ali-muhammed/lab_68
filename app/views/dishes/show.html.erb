@@ -1,7 +1,15 @@
-<h3><%= @dish.name %></h3>
-<%= image_tag @dish.picture, size: 100 %>
-<p>Price: <%= @dish.price %></p>
-<p>From: <%= @dish.restaurant.name %></p>
-<p>Description: <%= @dish.description %></p>
+<div class="card" style="width: 18rem;">
+  <%= image_tag @dish.picture, size: 300, class: "img-thumbnail" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @dish.name %></h5>
+    <p class="card-text">
+    	<%= @dish.description %>
+    	<br>
+    	From: <%= @dish.restaurant.name %>
+    	<br>
+    	Price: <%= @dish.price %>
+    </p>
+  </div>
+</div>
 
-<%= link_to 'Home', restaurants_url %>
+<%= link_to 'Home', restaurants_path, class: "text-dark btn btn-warning" %>

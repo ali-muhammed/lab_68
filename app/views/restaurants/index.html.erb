@@ -1,16 +1,15 @@
 <h1>Restaurants</h1>
 
-  <% @restaurants.each do |restaurant| %>
-    <table border="20">
-      <tr>
-        <td>
-          <% if restaurant.picture.attached? %>
-    <%= image_tag restaurant.picture, size: 100 %>
-  <% end %>
-  </td>
-        <td> <%= link_to restaurant.name, restaurant_path(restaurant) %></td>
-        <td><%= restaurant.description %></td>
-      </tr>
-  <% end %>
-</table>   
+<% @restaurants.each do |restaurant| %>
+  <div class="card bg-danger text-light" style="width: 20rem;">
+      <% if restaurant.picture.attached? %>
+          <%= image_tag restaurant.picture, size: 250, class: "img-thumbnail center mx-auto" %>
+      <% end %>
+    <div class="card-body btn-warning">
+      <h5 class="card-title"> <%= restaurant.name %></h5>
+      <p class="card-text"><%= restaurant.description %></p>
+      <a> <%= link_to 'View', restaurant_path(restaurant), class: "text-light btn btn-danger"  %></a>
+    </div>
+  </div><br>
+<% end %>  
 
