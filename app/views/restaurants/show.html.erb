@@ -1,0 +1,20 @@
+<h3><%= @restaurant.name %></h3>
+<%= image_tag @restaurant.picture, size: 100 %>
+<p>Description: <%= @restaurant.description %></p>
+<h2><%= @restaurant.name %> Dishes</h2>
+
+<table class="table">
+  <tr>
+    <% @restaurant.dishes.each do |dish| %>
+    <tr>
+      <td>
+      	<%= image_tag dish.picture, size: 100 %><br>
+        <%= link_to dish.name, dish_path(dish) %><br>
+        <%= dish.price %>
+        <%= dish.description %>
+      </td>
+    </tr>
+    <% end %>
+  </tr>
+</table>
+<%= link_to 'Home', restaurants_url %>

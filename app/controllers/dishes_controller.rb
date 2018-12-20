@@ -9,11 +9,5 @@ class DishesController < ApplicationController
 	end
 
 	private
-
-	def dish_params
-		params.require(:dish).permit(
-			:name, :description, :price
-			)
-	end 
 end
  

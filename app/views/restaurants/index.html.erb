@@ -1,0 +1,16 @@
+<h1>Restaurants</h1>
+
+  <% @restaurants.each do |restaurant| %>
+    <table border="20">
+      <tr>
+        <td>
+          <% if restaurant.picture.attached? %>
+    <%= image_tag restaurant.picture, size: 100 %>
+  <% end %>
+  </td>
+        <td> <%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+        <td><%= restaurant.description %></td>
+      </tr>
+  <% end %>
+</table>   
+

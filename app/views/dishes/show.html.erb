@@ -1,0 +1,7 @@
+<h3><%= @dish.name %></h3>
+<%= image_tag @dish.picture, size: 100 %>
+<p>Price: <%= @dish.price %></p>
+<p>From: <%= @dish.restaurant.name %></p>
+<p>Description: <%= @dish.description %></p>
+
+<%= link_to 'Home', restaurants_url %>
